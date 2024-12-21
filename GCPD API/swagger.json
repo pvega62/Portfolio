@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "title" : "GCPD Detainees API",
-    "description" : "This is a simple API designed to provide GCPD officers and staff access to their database of detainees. Only administrative staff can upload, delete or amend a detainee file. Authorized staff can retrieve a detainee file.",
+    "description" : "This is a simple API designed to provide GCPD officers and staff access to their database of detainees. Only administrative staff can upload, delete or amend a detainee file. Authorized staff can retrieve a detainee file.\n\n\nThis API uses oauth2 encryption. However, due to the sensitive nature of this database, you must contact Barbara Gordon to gain authorization.",
     "contact" : {
       "name" : "Barbara Gordon",
       "url" : "https://gcpd.gov.nj",
@@ -22,7 +22,7 @@
     "description" : "SwaggerHub API Auto Mocking"
   } ],
   "tags" : [ {
-    "name" : "Admins",
+    "name" : "Admin",
     "description" : "Secured Admin-only calls"
   }, {
     "name" : "Staff",
@@ -121,10 +121,13 @@
               }
             }
           }
-        }
+        },
+        "security" : [ {
+          "oAuthStaff" : [ "read_detainee" ]
+        } ]
       },
       "post" : {
-        "tags" : [ "Admins" ],
+        "tags" : [ "Admin" ],
         "summary" : "adds a detainee to the database",
         "description" : "Adds a detainee to the Gotham City Police Department database.",
         "operationId" : "addDetainee",
@@ -156,7 +159,10 @@
           "413" : {
             "description" : "Request entity too large"
           }
-        }
+        },
+        "security" : [ {
+          "oAuthAdmin" : [ "write_detainee", "read_detainee" ]
+        } ]
       }
     }
   },
@@ -199,6 +205,33 @@
           "phone" : {
             "type" : "string",
             "example" : "609-555-4327"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "oAuthAdmin" : {
+        "type" : "oauth2",
+        "description" : "This API uses OAuth 2 with the implicit grant flow.",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "https://api.gcpd.nj.gov/oauth2/authorizeadmin",
+            "scopes" : {
+              "read_detainee" : "read detainee file",
+              "write_detainee" : "modify detainee"
+            }
+          }
+        }
+      },
+      "oAuthStaff" : {
+        "type" : "oauth2",
+        "description" : "This API uses OAuth 2 with the implicit grant flow.",
+        "flows" : {
+          "implicit" : {
+            "authorizationUrl" : "https://api.gcpd.nj.gov/oauth2/authorizestiff",
+            "scopes" : {
+              "read_detainee" : "read detainee file"
+            }
           }
         }
       }
