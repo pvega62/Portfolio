@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "title" : "Swagger Petstore",
-    "description" : "This is a sample Petstore server.  You can find\nout more about Swagger at\n[http://swagger.io](http://swagger.io) or on\n[irc.freenode.net, #swagger](http://swagger.io/irc/).\n",
+    "description" : "This is a sample Petstore server. \n\nThe API requests found here can help developers make calls to the Petstore server to send or request data about any pets and/or orders entered into the system. To authenticate your connection to the Petstore's API, use OAUth 2.0 OR use an assigned API Key. To be assigned an API Key, email budbaker@bhavenpets.com To make API requests, you will need the Base URL: https://petstore.swagger.io/v2. You can find\nout more about Swagger at\n[http://swagger.io](http://swagger.io) or on\n[irc.freenode.net, #swagger](http://swagger.io/irc/).\n",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
       "email" : "apiteam@swagger.io"
@@ -24,20 +24,20 @@
     "url" : "https://petstore.swagger.io/v2"
   } ],
   "tags" : [ {
-    "name" : "pet",
-    "description" : "Everything about your Pets",
+    "name" : "Pet",
+    "description" : "Everything about your Pets.",
     "externalDocs" : {
       "description" : "Find out more",
       "url" : "http://swagger.io"
     }
   }, {
-    "name" : "store",
-    "description" : "Access to Petstore orders"
+    "name" : "Store",
+    "description" : "Grants access to Petstore orders."
   }, {
-    "name" : "user",
+    "name" : "User",
     "description" : "Operations about user",
     "externalDocs" : {
-      "description" : "Find out more about our store",
+      "description" : "Find out more about our store.",
       "url" : "http://swagger.io"
     }
   } ],
@@ -45,7 +45,7 @@
     "/pet" : {
       "put" : {
         "tags" : [ "pet" ],
-        "summary" : "Update an existing pet",
+        "summary" : "Update an existing pet.",
         "operationId" : "updatePet",
         "requestBody" : {
           "$ref" : "#/components/requestBodies/Pet"
@@ -67,7 +67,7 @@
       },
       "post" : {
         "tags" : [ "pet" ],
-        "summary" : "Add a new pet to the store",
+        "summary" : "Add a new pet to the store database.",
         "operationId" : "addPet",
         "requestBody" : {
           "$ref" : "#/components/requestBodies/Pet"
@@ -86,12 +86,12 @@
       "get" : {
         "tags" : [ "pet" ],
         "summary" : "Finds Pets by status",
-        "description" : "Multiple status values can be provided with comma separated strings",
+        "description" : "Multiple status values can be provided with comma separated strings.",
         "operationId" : "findPetsByStatus",
         "parameters" : [ {
           "name" : "status",
           "in" : "query",
-          "description" : "Status values that need to be considered for filter",
+          "description" : "Status values that need to be considered for filter.",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -138,7 +138,7 @@
     "/pet/findByTags" : {
       "get" : {
         "tags" : [ "pet" ],
-        "summary" : "Finds Pets by tags",
+        "summary" : "Finds Pets in the database by tags.",
         "description" : "Muliple tags can be provided with comma separated strings. Use\\ \\ tag1, tag2, tag3 for testing.",
         "operationId" : "findPetsByTags",
         "parameters" : [ {
@@ -191,7 +191,7 @@
       "get" : {
         "tags" : [ "pet" ],
         "summary" : "Find pet by ID",
-        "description" : "Returns a single pet",
+        "description" : "Returns a single pet result.",
         "operationId" : "getPetById",
         "parameters" : [ {
           "name" : "petId",
@@ -234,12 +234,12 @@
       },
       "post" : {
         "tags" : [ "pet" ],
-        "summary" : "Updates a pet in the store with form data",
+        "summary" : "Updates a pet in the store with form data.",
         "operationId" : "updatePetWithForm",
         "parameters" : [ {
           "name" : "petId",
           "in" : "path",
-          "description" : "ID of pet that needs to be updated",
+          "description" : "ID of pet that needs to be updated.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -352,7 +352,7 @@
       "get" : {
         "tags" : [ "store" ],
         "summary" : "Returns pet inventories by status",
-        "description" : "Returns a map of status codes to quantities",
+        "description" : "Returns a map of status codes to quantities.",
         "operationId" : "getInventory",
         "responses" : {
           "200" : {
@@ -381,7 +381,7 @@
         "summary" : "Place an order for a pet",
         "operationId" : "placeOrder",
         "requestBody" : {
-          "description" : "order placed for purchasing the pet",
+          "description" : "order placed to purchase the pet",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -416,13 +416,13 @@
     "/store/order/{orderId}" : {
       "get" : {
         "tags" : [ "store" ],
-        "summary" : "Find purchase order by ID",
+        "summary" : "Find purchase order by ID.",
         "description" : "For valid response try integer IDs with value >= 1 and <= 10.\\ \\ Other values will generated exceptions",
         "operationId" : "getOrderById",
         "parameters" : [ {
           "name" : "orderId",
           "in" : "path",
-          "description" : "ID of pet that needs to be fetched",
+          "description" : "ID of pet that needs to be fetched.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -459,13 +459,13 @@
       },
       "delete" : {
         "tags" : [ "store" ],
-        "summary" : "Delete purchase order by ID",
+        "summary" : "Delete purchase order by ID.",
         "description" : "For valid response try integer IDs with positive integer value.\\ \\ Negative or non-integer values will generate API errors",
         "operationId" : "deleteOrder",
         "parameters" : [ {
           "name" : "orderId",
           "in" : "path",
-          "description" : "ID of the order that needs to be deleted",
+          "description" : "ID of the order that needs to be deleted.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -512,7 +512,7 @@
     "/user/createWithArray" : {
       "post" : {
         "tags" : [ "user" ],
-        "summary" : "Creates list of users with given input array",
+        "summary" : "Creates list of users with given input array.",
         "operationId" : "createUsersWithArrayInput",
         "requestBody" : {
           "$ref" : "#/components/requestBodies/UserArray"
@@ -527,7 +527,7 @@
     "/user/createWithList" : {
       "post" : {
         "tags" : [ "user" ],
-        "summary" : "Creates list of users with given input array",
+        "summary" : "Creates list of users with given input array.",
         "operationId" : "createUsersWithListInput",
         "requestBody" : {
           "$ref" : "#/components/requestBodies/UserArray"
@@ -542,7 +542,7 @@
     "/user/login" : {
       "get" : {
         "tags" : [ "user" ],
-        "summary" : "Logs user into the system",
+        "summary" : "Logs user into the system.",
         "operationId" : "loginUser",
         "parameters" : [ {
           "name" : "username",
@@ -557,7 +557,7 @@
         }, {
           "name" : "password",
           "in" : "query",
-          "description" : "The password for login in clear text",
+          "description" : "The password for login in clear text.",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -570,7 +570,7 @@
             "description" : "successful operation",
             "headers" : {
               "X-Rate-Limit" : {
-                "description" : "calls per hour allowed by the user",
+                "description" : "Calls per hour allowed by the user.",
                 "style" : "simple",
                 "explode" : false,
                 "schema" : {
@@ -579,7 +579,7 @@
                 }
               },
               "X-Expires-After" : {
-                "description" : "date in UTC when token expires",
+                "description" : "Date in UTC when token expires.",
                 "style" : "simple",
                 "explode" : false,
                 "schema" : {
@@ -610,7 +610,7 @@
     "/user/logout" : {
       "get" : {
         "tags" : [ "user" ],
-        "summary" : "Logs out current logged in user session",
+        "summary" : "Logs out current logged in user session.",
         "operationId" : "logoutUser",
         "responses" : {
           "default" : {
@@ -667,7 +667,7 @@
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
-          "description" : "name that need to be updated",
+          "description" : "Name that need to be updated.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -859,7 +859,7 @@
           },
           "status" : {
             "type" : "string",
-            "description" : "pet status in the store",
+            "description" : "Pet status in the store.",
             "enum" : [ "available", "pending", "sold" ]
           }
         },
@@ -887,18 +887,18 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Updated name of the pet"
+            "description" : "Updated name of the pet."
           },
           "status" : {
             "type" : "string",
-            "description" : "Updated status of the pet"
+            "description" : "Updated status of the pet."
           }
         }
       }
     },
     "requestBodies" : {
       "Pet" : {
-        "description" : "Pet object that needs to be added to the store",
+        "description" : "Pet object that needs to be added to the store.",
         "content" : {
           "application/json" : {
             "schema" : {
