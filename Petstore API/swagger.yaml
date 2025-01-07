@@ -24,17 +24,17 @@
     "url" : "https://petstore.swagger.io/v2"
   } ],
   "tags" : [ {
-    "name" : "Pet",
+    "name" : "pet",
     "description" : "Everything about your Pets.",
     "externalDocs" : {
       "description" : "Find out more",
       "url" : "http://swagger.io"
     }
   }, {
-    "name" : "Store",
+    "name" : "store",
     "description" : "Grants access to Petstore orders."
   }, {
-    "name" : "User",
+    "name" : "user",
     "description" : "Operations about user",
     "externalDocs" : {
       "description" : "Find out more about our store.",
@@ -307,7 +307,7 @@
     "/pet/{petId}/uploadImage" : {
       "post" : {
         "tags" : [ "pet" ],
-        "summary" : "uploads an image",
+        "summary" : "Uploads an image.",
         "operationId" : "uploadFile",
         "parameters" : [ {
           "name" : "petId",
