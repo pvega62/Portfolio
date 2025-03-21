@@ -85,7 +85,7 @@
     "/pet/findByStatus" : {
       "get" : {
         "tags" : [ "pet" ],
-        "summary" : "Finds Pets by status",
+        "summary" : "Finds Pets by status.",
         "description" : "Multiple status values can be provided with comma separated strings.",
         "operationId" : "findPetsByStatus",
         "parameters" : [ {
@@ -190,7 +190,7 @@
     "/pet/{petId}" : {
       "get" : {
         "tags" : [ "pet" ],
-        "summary" : "Find pet by ID",
+        "summary" : "Find pet by ID.",
         "description" : "Returns a single pet result.",
         "operationId" : "getPetById",
         "parameters" : [ {
@@ -268,7 +268,7 @@
       },
       "delete" : {
         "tags" : [ "pet" ],
-        "summary" : "Deletes a pet",
+        "summary" : "Deletes a pet.",
         "operationId" : "deletePet",
         "parameters" : [ {
           "name" : "api_key",
@@ -351,7 +351,7 @@
     "/store/inventory" : {
       "get" : {
         "tags" : [ "store" ],
-        "summary" : "Returns pet inventories by status",
+        "summary" : "Returns pet inventories by status.",
         "description" : "Returns a map of status codes to quantities.",
         "operationId" : "getInventory",
         "responses" : {
@@ -378,7 +378,7 @@
     "/store/order" : {
       "post" : {
         "tags" : [ "store" ],
-        "summary" : "Place an order for a pet",
+        "summary" : "Place an order for a pet.",
         "operationId" : "placeOrder",
         "requestBody" : {
           "description" : "order placed to purchase the pet",
@@ -417,7 +417,7 @@
       "get" : {
         "tags" : [ "store" ],
         "summary" : "Find purchase order by ID.",
-        "description" : "For valid response try integer IDs with value >= 1 and <= 10.\\ \\ Other values will generated exceptions",
+        "description" : "For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions",
         "operationId" : "getOrderById",
         "parameters" : [ {
           "name" : "orderId",
@@ -460,7 +460,7 @@
       "delete" : {
         "tags" : [ "store" ],
         "summary" : "Delete purchase order by ID.",
-        "description" : "For valid response try integer IDs with positive integer value.\\ \\ Negative or non-integer values will generate API errors",
+        "description" : "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors",
         "operationId" : "deleteOrder",
         "parameters" : [ {
           "name" : "orderId",
@@ -488,8 +488,8 @@
     "/user" : {
       "post" : {
         "tags" : [ "user" ],
-        "summary" : "Create user",
-        "description" : "This can only be done by the logged in user.",
+        "summary" : "Creates a new user account.",
+        "description" : "This can only be done by an already logged in user.",
         "operationId" : "createUser",
         "requestBody" : {
           "description" : "Created user object",
@@ -547,7 +547,7 @@
         "parameters" : [ {
           "name" : "username",
           "in" : "query",
-          "description" : "The user name for login",
+          "description" : "The username used to log into account.",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -557,7 +557,7 @@
         }, {
           "name" : "password",
           "in" : "query",
-          "description" : "The password for login in clear text.",
+          "description" : "The password used to log into account.",
           "required" : true,
           "style" : "form",
           "explode" : true,
@@ -602,7 +602,7 @@
             }
           },
           "400" : {
-            "description" : "Invalid username/password supplied"
+            "description" : "Invalid username/password supplied."
           }
         }
       }
@@ -622,12 +622,12 @@
     "/user/{username}" : {
       "get" : {
         "tags" : [ "user" ],
-        "summary" : "Get user by user name",
+        "summary" : "Get user by user name.",
         "operationId" : "getUserByName",
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
-          "description" : "The name that needs to be fetched. Use user1 for testing.",
+          "description" : "The user that needs to be fetched. Use user1 for testing.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -661,13 +661,13 @@
       },
       "put" : {
         "tags" : [ "user" ],
-        "summary" : "Updated user",
-        "description" : "This can only be done by the logged in user.",
+        "summary" : "Updates a user account.",
+        "description" : "This can only be done by a logged in user.",
         "operationId" : "updateUser",
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
-          "description" : "Name that need to be updated.",
+          "description" : "User that need to be updated.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -697,13 +697,13 @@
       },
       "delete" : {
         "tags" : [ "user" ],
-        "summary" : "Delete user",
-        "description" : "This can only be done by the logged in user.",
+        "summary" : "Deletes user account.",
+        "description" : "This can only be done by a logged in user.",
         "operationId" : "deleteUser",
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
-          "description" : "The name that needs to be deleted",
+          "description" : "The user that needs to be deleted",
           "required" : true,
           "style" : "simple",
           "explode" : false,
