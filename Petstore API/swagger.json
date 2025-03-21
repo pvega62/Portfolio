@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "title" : "Swagger Petstore",
-    "description" : "This is a sample Petstore server. \n\nThe API requests found here can help developers make calls to the Petstore server to send or request data about any pets and/or orders entered into the system. To authenticate your connection to the Petstore's API, use OAUth 2.0 OR use an assigned API Key. To be assigned an API Key, email budbaker@bhavenpets.com To make API requests, you will need the Base URL: https://petstore.swagger.io/v2. You can find\nout more about Swagger at\n[http://swagger.io](http://swagger.io) or on\n[irc.freenode.net, #swagger](http://swagger.io/irc/).\n",
+    "description" : "This is a sample Petstore server. \nThe API requests found here can help developers make calls to the Petstore server to send or request data about any pets and/or orders entered into the system. To authenticate your connection to the Petstore's API, use OAUth 2.0 OR use an assigned API Key. To be assigned an API Key, email budbaker@bhavenpets.com To make API requests, you will need the Base URL: https://petstore.swagger.io/v2. You can find\nout more about Swagger at\n[http://swagger.io](http://swagger.io) or on\n[irc.freenode.net, #swagger](http://swagger.io/irc/).\n",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
       "email" : "apiteam@swagger.io"
