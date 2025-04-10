@@ -21,6 +21,47 @@
                     crossorigin="anonymous"
                 />
             </head>
+            <style>
+                body {
+                    background: linear-gradient(180deg, rgb(31, 56, 80), rgb(186, 184, 181));
+                    color: #fffbfb;
+                    font-family: Arial, sans-serif; 
+                    color: #e1dfdb; /* Set default text color */
+                }
+                p {
+                    margin-top: 5px; /* Reduce spacing above the paragraph */
+                    margin-bottom: 5px; /* Reduce spacing between paragraphs */
+                } 
+                h2 {
+                    margin-top: 10px; /* Reduce spacing above the header */
+                }
+
+                ul {
+                    margin-bottom: 10px; /* Adjust spacing for lists */
+                }
+
+                .btn-custom-blue {
+                    background-color: #0077B5;
+                    color: white;
+                }
+                .text-custom {
+                    color: #e1dfdb;
+                }
+                .text-custom-blue {
+                    color: #00305f;
+                }
+                .text-justify {
+                    text-align: justify;
+                }
+                .text-custom-purple {
+                    color: #55318C;
+                }
+                a:any-link {
+                    color: #e1dfdb; /* Set link color */
+                    text-decoration: none; /* Remove underline from links */
+                }
+                
+            </style>
         
             <body>
                 <header>
@@ -47,17 +88,17 @@
         </html>
     </head>
     <body>
-        <h1 class="text-left display-1"><b>Pedro Vega's Resume</b></h1>
-        <h2 class="text-center">Contact Information</h2>
-        <p>Phone: (347) 805-5251</p>
-        <a href="url" target="pedrovega.nyc" >Website</a>
-        <a href="url" target="linkedin.com/in/pvega62">LinkedIn</a>
-        <a href="url" target="github.com/pvega62">GitHub</a>
-        <a href="mailto:vega.pedro96@gmail.com">e-Mail</a>
-        <h2 class="text-center">Summary</h2>
-        <p>I'm a dedicated, detail-oriented technical writer who loves creating user-friendly documentation across various industries. With a strong background in API documentation and UX writing, I focus on making materials that enhance user understanding and product usability. I thrive on collaborating with cross-functional teams to deliver exceptional content that meets organizational goals and user needs. Fluent in Spanish and skilled in tools like MS Word, Postman, Swagger, and Adobe Suite allow me to tackle various challenges confidently. I'm proud to have improved documentation workflows by up to 40%, speeding up production timelines and boosting team efficiency. I am excited to contribute to new projects.</p>
-        <h2 class="text-center">Skills</h2>
-        <ul>
+        <h1 class="text-center display-1 text-custom" ><b>Pedro Vega's Resume</b></h1>
+        <h2 class="text-center text-custom">Contact Information</h2>
+        <p class="text-custom text-custom">Phone: (347) 805-5251</p>
+        <a class="btn btn-primary" href="https://pedrovega.nyc" target="_blank" role="button">Portfolio</a>
+        <a class="btn btn-custom-blue" href="https://linkedin.com/in/pvega62" target="_blank" role="button">LinkedIn</a>
+        <a class= "btn btn-dark" href="https://github.com/pvega62" target="_blank" role="button">GitHub</a>
+        <a class= "btn btn-light text-danger"href="mailto:vega.pedro96@gmail.com">e-Mail</a>
+        <h2 class="text-center text-custom">Summary</h2>
+        <p class="text-custom text-justify"> I'm a dedicated, detail-oriented technical writer who loves creating user-friendly documentation across various industries. With a strong background in API documentation and UX writing, I focus on making materials that enhance user understanding and product usability. I thrive on collaborating with cross-functional teams to deliver exceptional content that meets organizational goals and user needs. Fluent in Spanish and skilled in tools like MS Word, Postman, Swagger, and Adobe Suite allow me to tackle various challenges confidently. I'm proud to have improved documentation workflows by up to 40%, speeding up production timelines and boosting team efficiency. I am excited to contribute to new projects.</p>
+        <h2 class="text-center text-custom" >Skills</h2>
+        <ul class="text-custom">
             <li><b>Technical Writing/Documentation:</b> Expertise in API documentation (Postman, Swagger), “docs as code”, user guides, technical memos, FAQs, and process documentation. </li>
             <li><b>Content Development:</b> Skilled in SEO optimization, document translation (Spanish), and digital and print content creation. </li>
             <li><b>Design and Visualization: </b> Proficient in Figma, Adobe InDesign, Photoshop, Illustrator, SnagIt, and Visio for document and packaging design. </li>
@@ -68,21 +109,21 @@
             <li><b>Languages:</b> Fluent in Spanish, Intermediate in French</li>
             <li><b>Markup Languages:</b> HTML, CSS (Bootstrap), and Java.</li>
         </ul>
-        <h2 class="text-center">Relevant Experience</h2>
-        <p><b>UX WRITER, CULANGEX</b></p>
-        <p>Dec 2023 - Present</p>
-        <p>Remote</p>
-        <ul>
+        <h2 class="text-center text-custom">Relevant Experience</h2>
+        <p class="text-custom"><b>UX WRITER, <a href="https://www.culangex.com/" target="_blank">CULANGEX</a></b></p>
+        <p class="text-custom">Dec 2023 - Present</p>
+        <p class="text-custom">Remote</p>
+        <ul class="text-custom">
             <li>Collaborating with stakeholders and the design and marketing teams to create a comprehensive company-wide style guide.</li>
             <li>Writing concise micro-copy to assist users during onboarding and other processes.</li>
             <li>Working with the language education team to translate written content into Spanish.</li>
             <li>Assisting stakeholders in drafting and revising the pitch deck for potential investors.</li>
             <li>Working alongside the software development team to track project progress and documentation.</li>
         </ul>
-        <p><b>TECHNICAL WRITER, FELIX STORCH, INC</b></p>
-        <p>Mar 2022 - Feb 2024</p>
-        <p>Bronx, NY</p>
-        <ul>
+        <p class="text-custom"><b>TECHNICAL WRITER, <a href="https://felixstorchinc.com/" target="_blank">FELIX STORCH, INC</a></b></p>
+        <p class="text-custom">Mar 2022 - Feb 2024</p>
+        <p class=" text-custom">The Bronx, NY</p>
+        <ul class="text-custom">
             <li>Authored and maintained over 150 user manuals, technical memos, and marketing documents across 5 brands, contributing to a 25% reduction in customer support inquiries.</li>
             <li>Designed amd implemented document templates, reducing manual production times by 40%.</li>
             <li>Collaborated with cross-functional teams, includinf SMEs and customer support, to intergrate user geeback, improving manual usability by 30%.</li>
@@ -90,31 +131,31 @@
             <li>Leveraged Adobe Suite tools (InDesign, Illustrator) to design packaging material, ensurace compliance with branding guidelines.</li>
             <li>Conducted thermodynamics research, enabling accurate and concise technical explanations for product manuals.</li>
             </ul>
-        <p><b>JOURNALIST INTERN, THE BORGEN PROJECT</b></p>
-        <P>Jun 2020 - Jan 2021</P>
-        <p>Remote</p>
-        <ul>
+        <p class="text-custom"><b>JOURNALIST INTERN, <a href="https://borgenproject.org/" target="_blank">THE BORGEN PROJECT</a></b></p>
+        <P class="text-custom">Jun 2020 - Jan 2021</P>
+        <p class="text-custom">Remote</p>
+        <ul class="text-custom">
             <li>Researched and published 15+ high-impact articles on international poverty and humanitarian policies, achieving a 20% increase in website traffic.</li>
             <li>Conducted in-depth interviews with experts, enhancing the credibility and depth of articles.</li>
             <li>Optimized content for SEO, resulting in a 30% boost in article and visibility and engagement.</li>
         </ul>
-        <p><b>TRADE EDITORIAL INTERN, W.W NORTON & COMPANY</b></p>
-        <p>Jan 2019 - Apr 2019</p>
-        <p>New York, NY</p>
-        <ul>
+        <p class="text-custom"><b>TRADE EDITORIAL INTERN, <a href="https://wwnorton.com" target="_blank">W.W NORTON & COMPANY</a></b></p>
+        <p class="text-custom">Jan 2019 - Apr 2019</p>
+        <p class="text-custom">New York, NY</p>
+        <ul class="text-custom">
             <li>Drafted and edited marketing materials for 10+ published workls, driving a 15% increase in pre-sales for select titles.</li>
             <li>Coordinated with authors and vendors,, ensuring timely delivery of promotional materials.</li>
             <li>Assisted senior editors in line-editing manuscripts, reducing yhe review cycle by 25%.</li>
         </ul>
-        <p><b>MEDIA SERVICES TECHNICIAN, MEW YORK CITY COLLEGE OF TECHNOLOGY</b></p>
-        <p>Feb 2015 - Jan 2016</p>
-        <p>Brooklyn, NY</p>
-        <ul>
+        <p class="text-custom"><b>MEDIA SERVICES TECHNICIAN, <a href="https://www.citytech.cuny.edu/" target="_blank"> NEW YORK CITY COLLEGE OF TECHNOLOGY</a></b></p>
+        <p class="text-custom">Feb 2015 - Jan 2016</p>
+        <p class="text-custom">Brooklyn, NY</p>
+        <ul class="text-custom">
             <li>Delivered A/V solutions for 50+ campus events annually, achieving excellent customer satisfaction scores.</li>
             <li>Authored technical guides and FAQs, streamlining user support processes by 20%.</li>
         </ul>
-        <h2 class="text-center">Education</h2>
-        <p><b>CITY COLLEGE OF NEW YORK</b></p>
+        <h2 class="text-center text-custom">Education</h2>
+        <p class="text-custom-purple"><b><a href="https://www.ccny.cuny.edu/" target="_blank">CITY COLLEGE OF NEW YORK</a></b></p>
         <p>B.A in English, minor in Journalism</p>
         <p>Publishing Certificate Program, focus on editing and proofreading</p>
         <h2 class="text-center">Certifications</h2>
