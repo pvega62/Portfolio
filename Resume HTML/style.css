@@ -1,0 +1,11 @@
+/* This CSS will create a gradient text effect */
+/* You can adjust the gradient colors and direction as needed */    
+
+.gradient-text {
+    background: linear-gradient(to bottom, #ff0000, #0000ff); /* Your top-to-bottom gradient */
+    -webkit-background-clip: text; /* Clips the background to the text shape (for WebKit browsers) */
+    background-clip: text;         /* Clips the background to the text shape (standard) */
+    color: #0000ff; /* Makes the default text color transparent */
+    -webkit-text-fill-color: transparent; /* Ensures gradient text in WebKit browsers */
+    font-size: 2em; /* Example font size */
+}
