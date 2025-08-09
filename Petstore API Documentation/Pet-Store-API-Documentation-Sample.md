@@ -13,12 +13,13 @@
  - Get inventory of pets, categorized by status
  - Place an order for a pet
  - Find purchase orders by their ID
- - Cancel an order47 
+ - Cancel an order
 
 **User**
- - Create a new user
+ - Create a new user account (individually or from a list)
+ - Log users in and out of the system
  - Find a user by their ID
- - Update a user's information
+ - Retrieve, update, and delete a user's information by their username 
 
  # Connection Prerequisites
 
@@ -26,7 +27,149 @@
  # Authentication
  To authenticate your connection to the Petstore's API, use OAuth 2.0 or an assigned API key. To be assigned a key, email budbaker@bhavenpets.com.
 
-  **NOTE**: For security purposes, API keys must not be shared with other users.
+  **NOTE**: For security purposes, API keys must not be shared with other users. If you suspect that your API key has been compromised, please contact us immediately to revoke the old key and issue a new one.
 
+  # Functions
+  This API consists of three main sections: **Pets**, **Store**, and **User**.
 
+  ## Pets
+  Everything about your pets.
 
+### Adding a New Pet
+Add a new pet to the store's database.
+
+Endpoint: https://petstore.swagger.io/v2/pet
+
+Operation: `POST`
+
+### Examples
+**API Key Example**
+```HTML
+POST /v2/pet
+Host: petstore.swagger.io
+api_key: <YOUR_API_KEY>
+```
+
+**OAuth 2.0 Example**
+```HTML
+POST /v2/pet
+Host: petstore.swagger.io
+Authorization: Bearer <YOUR_OAUTH_TOKEN>
+```
+**cURL API Key Example**
+```curl
+POST "https://petstore.swagger.io/v2/pet" \
+-H "accept: application/json" \
+-H "Content-Type: application/json" \
+-H "api_key: <YOUR_API_KEY>" \
+-d '{
+  "id": 0,
+  "name": "string",
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}'
+```
+
+**cURL OAuth 2.0 Example**
+```curl
+POST "https://petstore.swagger.io/v2/pet" \
+-H "accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
+-d '{
+  "id": 0,
+  "name": "string",
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}'
+```
+### Responses
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation<br><br><pre><code>{<br>  "id": 210,<br>  "name": "Krypto",<br>  "category": {<br>    "id": 1,<br>    "name": "Dogs"<br>  },<br>  "photoUrls": [<br>    "string"<br>  ],<br>  "tags": [<br>    {<br>      "id": 0,<br>      "name": "string"<br>    }<br>  ],<br>  "status": "available"<br>}</code></pre> |
+| 400  | Invalid input |
+| 404  | Pet not found |
+| 422 | Validation exception |
+| default | Unexpected error |
+## Parameters
+None
+
+ ### Updating an Existing Pet
+ Update an existing pet by Id.
+
+ Endpoint: https://petstore.swagger.io/v2/pet/{petId}
+
+ Operation: `PUT`
+### Examples
+**API Key Example**
+  ```HTML
+  PUT /v2/pet/210
+  Host: petstore.swagger.io
+  api_key: <YOUR_API_KEY>
+  ```
+
+  **OAuth 2.0 Example**
+  ```HTML
+  PUT /v2/pet/210
+  Host: petstore.swagger.io
+  Authorization: Bearer <YOUR_OAUTH_TOKEN>
+  ```
+  **cURL API Key Example**
+  ```curl 
+  PUT "https://petstore.swagger.io/v2/pet/210" \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+  -H "api_key: <YOUR_API_KEY>" \
+  -d '{
+    "id": 210,
+    "name": "Krypto",
+    "status": "available"
+  }'
+  ```
+
+  **cURL OAuth 2.0 Example**
+  ```curl 
+  PUT "https://petstore.swagger.io/v2/pet/210" \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
+  -d '{
+    "id": 210,
+    "name": "Krypto",
+    "status": "available"
+  }'
+  ```
+### Responses
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation<br><br><pre><code>{<br>  "id": 210,<br>  "name": "Krypto",<br>  "category": {<br>    "id": 1,<br>    "name": "Dogs"<br>  },<br>  "photoUrls": [<br>    "string"<br>  ],<br>  "tags": [<br>    {<br>      "id": 0,<br>      "name": "string"<br>    }<br>  ],<br>  "status": "available"<br>}</code></pre> |
+| 400  | Invalid input |
+| 404  | Pet not found |
+| 422 | Validation exception |
+| default | Unexpected error |
+## Parameters
+None

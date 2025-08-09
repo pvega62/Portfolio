@@ -62,7 +62,7 @@
         "description": "Update an existing pet by Id.",
         "operationId": "updatePet",
         "requestBody": {
-          "description": "Update an existent pet in the store",
+          "description": "Update an existing pet in the store",
           "content": {
             "application/json": {
               "schema": {
