@@ -114,6 +114,7 @@ POST "https://petstore.swagger.io/v2/pet" \
 | 404  | Pet not found |
 | 422 | Validation exception |
 | default | Unexpected error |
+
 `200: Successful operation`
 ```json
 {
