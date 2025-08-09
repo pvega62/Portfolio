@@ -31,9 +31,8 @@
 
   # Functions
   This API consists of three main sections: **Pets**, **Store**, and **User**.
-
-  ## Pets
-  Everything about your pets.
+## Pets
+ Everything about your pets.
 
 ### Adding a New Pet
 Add a new pet to the store's database.
@@ -110,15 +109,37 @@ POST "https://petstore.swagger.io/v2/pet" \
 ### Responses
 | Code | Description |
 |------|-------------|
-| 200  | Successful operation<br><br><pre><code>{<br>  "id": 210,<br>  "name": "Krypto",<br>  "category": {<br>    "id": 1,<br>    "name": "Dogs"<br>  },<br>  "photoUrls": [<br>    "string"<br>  ],<br>  "tags": [<br>    {<br>      "id": 0,<br>      "name": "string"<br>    }<br>  ],<br>  "status": "available"<br>}</code></pre> |
+| 200  | Successful operation|
 | 400  | Invalid input |
 | 404  | Pet not found |
 | 422 | Validation exception |
 | default | Unexpected error |
-## Parameters
+`200: Successful operation`
+```json
+{
+  "id": 210,
+  "name": "Krypto",
+  "category": {
+    "id": 1,
+    "name": "Dogs"
+  },
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}
+```
+
+### Parameters
 None
 
- ### Updating an Existing Pet
+ ## Updating an Existing Pet
  Update an existing pet by Id.
 
  Endpoint: https://petstore.swagger.io/v2/pet/{petId}
@@ -166,10 +187,171 @@ None
 ### Responses
 | Code | Description |
 |------|-------------|
-| 200  | Successful operation<br><br><pre><code>{<br>  "id": 210,<br>  "name": "Krypto",<br>  "category": {<br>    "id": 1,<br>    "name": "Dogs"<br>  },<br>  "photoUrls": [<br>    "string"<br>  ],<br>  "tags": [<br>    {<br>      "id": 0,<br>      "name": "string"<br>    }<br>  ],<br>  "status": "available"<br>}</code></pre> |
+| 200  | Successful operation |
 | 400  | Invalid input |
 | 404  | Pet not found |
 | 422 | Validation exception |
 | default | Unexpected error |
-## Parameters
+
+`200: Successful operation`
+```json
+{
+  "id": 210,
+  "name": "Krypto",
+  "category": {
+    "id": 1,
+    "name": "Dogs"
+  },
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}
+```
+### Parameters
 None
+## Finding a Pet by Status
+Finds pets by their status.
+
+Endpoint: https://petstore.swagger.io/v2/pet/findByStatus
+
+Operation: `GET`
+
+### Examples
+**API Key Example**
+```HTML
+GET /v2/pet/findByStatus?status=available
+Host: petstore.swagger.io
+api_key: <YOUR_API_KEY>
+```
+
+**OAuth 2.0 Example**
+```HTML
+GET /v2/pet/findByStatus?status=available
+Host: petstore.swagger.io
+Authorization: Bearer <YOUR_OAUTH_TOKEN>
+```
+**cURL API Key Example**
+```curl
+GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+```
+
+**cURL OAuth 2.0 Example**
+```curl
+GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
+```
+### Responses
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation |
+| 400  | Invalid input |
+| default | Unexpected error |
+
+`200: Successful operation`
+```json
+[
+  {
+    "id": 210,
+    "name": "Krypto",
+    "category": {
+      "id": 1,
+      "name": "Dogs"
+    },
+    "photoUrls": [
+      "string"
+    ],
+    "tags": [
+      {
+        "id": 0,
+        "name": "string"
+      }
+    ],
+    "status": "available"
+  }
+]
+```
+### Parameters
+#### Query Parameters
+| Name   | Type   | Description                                                                                             |
+|--------|--------|---------------------------------------------------------------------------------------------------------|
+| status | string | Status of the pet to find. <br> **Default:** `available`. <br> **Allowed values:** `available`, `pending`, `sold`. |
+## Finding Pets by Tags
+
+Finds pets by their tags.
+
+Endpoint: https://petstore.swagger.io/v2/pet/findByTags
+
+Operation: `GET`
+
+### Examples
+**API Key Example**
+```HTML
+GET /v2/pet/findByTags?tags=string
+Host: petstore.swagger.io
+api_key: <YOUR_API_KEY>
+```
+
+**OAuth 2.0 Example**
+```HTML
+GET /v2/pet/findByTags?tags=string
+Host: petstore.swagger.io
+Authorization: Bearer <YOUR_OAUTH_TOKEN>
+```
+**cURL API Key Example**
+```curl
+GET "https://petstore.swagger.io/v2/pet/findByTags?tags=string" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+```
+
+**cURL OAuth 2.0 Example**
+```curl
+GET "https://petstore.swagger.io/v2/pet/findByTags?tags=string" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
+```
+### Responses
+| Code | Description |
+|------|-------------|
+| 200  | Successful operation |
+| 400  | Invalid input |
+| default | Unexpected error |
+
+`200: Successful operation`
+```json
+[
+  {
+    "id": 210,
+    "name": "Krypto",
+    "category": {
+      "id": 1,
+      "name": "Dogs"
+    },
+    "photoUrls": [
+      "string"
+    ],
+    "tags": [
+      {
+        "id": 0,
+        "name": "string"
+      }
+    ],
+    "status": "available"
+  }
+]
+```
+### Parameters
+#### Query Parameters
+| Name   | Type   | Description                                                                                             |
+|--------|--------|---------------------------------------------------------------------------------------------------------|
+| tags   | array  | Tags to filter by. <br> **Default:** `[]`. <br> **Allowed values:** Any valid tag names. |
