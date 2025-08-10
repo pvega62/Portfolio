@@ -5,25 +5,25 @@
  The Petstore API allows a developer to:
  
  **Pets**
- - Create, read, update, and delete pets in database
- - Upload an image for a pet
+ - Create, read, update, and delete pets in the database.
+ - Upload an image for a pet.
  - Find pets by their status (available, pending, sold), tags, or unique identifiers.
 
 **Store**
- - Get inventory of pets, categorized by status
- - Place an order for a pet
- - Find purchase orders by their ID
- - Cancel an order
+ - Get inventory of pets, categorized by status.
+ - Place an order for a pet.
+ - Find purchase orders by their ID.
+ - Cancel an order.
 
 **User**
- - Create a new user account (individually or from a list)
- - Log users in and out of the system
- - Find a user by their ID
- - Retrieve, update, and delete a user's information by their username 
+ - Create a new user account (individually or from a list).
+ - Log users in and out of the system.
+ - Find a user by their ID.
+ - Retrieve, update, and delete a user's information by their username. 
 
  # Connection Prerequisites
 
- The base URL for all API requests is `https://petstore.swagger.io/v2`
+ The base URL for all API requests is `https://petstore.swagger.io/v2`.
  # Authentication
  To authenticate your connection to the Petstore's API, use OAuth 2.0 or an assigned API key. To be assigned a key, email budbaker@bhavenpets.com.
 
@@ -162,7 +162,7 @@ None
   ```
   **cURL API Key Example**
   ```curl 
-  PUT "https://petstore.swagger.io/v2/pet/210" \
+  PUT "https://petstore.swagger.io/v2/pet" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -H "api_key: <YOUR_API_KEY>" \
@@ -175,7 +175,7 @@ None
 
   **cURL OAuth 2.0 Example**
   ```curl 
-  PUT "https://petstore.swagger.io/v2/pet/210" \
+  PUT "https://petstore.swagger.io/v2/pet" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
