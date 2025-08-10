@@ -15,15 +15,3 @@ jobs:
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
           GH_PAT: ${{ secrets.PAT }}
-
-pvega62/portfolio:
-  - Petstore API Documentation/Pet-Store-API-Documentation-Sample.md
-  - Stripe API Documentation/Stripe-API-Documentation-Sample.md
-
-pvega62/portfolio.wiki@master:
-  - source: Petstore API Documentation/Pet-Store-API-Documentation-Sample.md
-    dest: . Pet-Store-API-Documentation-Sample.md
-  - source: Stripe API Documentation/Stripe-API-Documentation-Sample.md
-    dest: . Stripe-API-Documentation-Sample.md
-
-uses: BetaHuhn/repo-file-sync-action@v1
