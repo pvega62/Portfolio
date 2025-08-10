@@ -944,5 +944,3 @@ This document is meant to provide an in-depth guide for the Petstore API as I wo
 It includes detailed information about the API endpoints, examples on how to make calls to the API, the parameters required for each endpoint, and the expected responses. This should serve as a comprehensive resource for developers working with the Petstore API.
 
 The API was created by Swagger, a powerful open-source framework for API development as a sample API. It's not intended for production use but rather as a demonstration of how I'd document an API. You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).
-
-Testing
