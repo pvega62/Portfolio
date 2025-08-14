@@ -1,6 +1,6 @@
 # Introduction
  
- This is a sample Petstore server. The API requests found here can help developers make calls to the Petstore server to send or request data about any pets and/or orders entered into the system.
+ This document provides an API reference for a sample Petstore server. The requests found here can help developers make calls to the Petstore server to send or request data about any pets and/or orders entered into the system.
 
  The Petstore API allows a developer to:
  
@@ -21,46 +21,34 @@
  - Find a user by their ID.
  - Retrieve, update, and delete a user's information by their username. 
 
+For this example, we'll use a dog (Krypto) and the ID number 210.
 ## Connection Prerequisites
 
- The base URL for all API requests is `https://petstore.swagger.io/v2`.
+ The base URL for all API requests is `https://petstore3.swagger.io/api/v3`.
 ## Authentication
  To authenticate your connection to the Petstore's API, use OAuth 2.0 or an assigned API key. To be assigned a key, email budbaker@bhavenpets.com.
 
   **NOTE**: For security purposes, API keys must not be shared with other users. If you suspect that your API key has been compromised, please contact us immediately to revoke the old key and issue a new one.
 
-# API Reference
+# Functions
 ## Pets
- Everything about your pets.
+ This section covers everything about your pets.
 
 ### Adding a New Pet
 Adds a new pet to the store's database.
 
-Endpoint: https://petstore.swagger.io/v2/pet
+Endpoint: https://petstore3.swagger.io/api/v3/pet
 
 Operation: `POST`
 
 #### Examples
-**API Key Example**
-```bash
-POST /v2/pet
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-```
-
-**OAuth 2.0 Example**
-```bash
-POST /v2/pet
-Host: petstore.swagger.io
-Authorization: Bearer <YOUR_OAUTH_TOKEN>
-```
 **cURL API Key Example**
 ```bash
-POST "https://petstore.swagger.io/v2/pet" \
+POST "https://petstore3.swagger.io/api/v3/pet" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
--H "api_key: <YOUR_API_KEY>" \
--d '{
+ -H "api_key: <YOUR_API_KEY>" \
+ -d '{
   "id": 0,
   "name": "string",
   "category": {
@@ -82,11 +70,11 @@ POST "https://petstore.swagger.io/v2/pet" \
 
 **cURL OAuth 2.0 Example**
 ```bash
-POST "https://petstore.swagger.io/v2/pet" \
+POST "https://petstore3.swagger.io/api/v3/pet" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
--d '{
+ -H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
+ -d '{
   "id": 0,
   "name": "string",
   "category": {
@@ -113,6 +101,8 @@ POST "https://petstore.swagger.io/v2/pet" \
 | 404  | Pet not found |
 | 422 | Validation exception |
 | default | Unexpected error |
+
+##### Response Example
 
 `200: Successful operation`
 ```json
@@ -142,26 +132,13 @@ None
 ### Updating an Existing Pet
 Updates an existing pet by its ID.
 
-Endpoint: https://petstore.swagger.io/v2/pet
+Endpoint: https://petstore3.swagger.io/api/v3/pet
 
 Operation: `PUT`
 #### Examples
-**API Key Example**
-```bash
-PUT /v2/pet
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-```
-
-**OAuth 2.0 Example**
-```bash
-PUT /v2/pet
-Host: petstore.swagger.io
-Authorization: Bearer <YOUR_OAUTH_TOKEN>
-```
 **cURL API Key Example**
 ```bash
-PUT "https://petstore.swagger.io/v2/pet" \
+PUT "https://petstore3.swagger.io/api/v3/pet" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
 -H "api_key: <YOUR_API_KEY>" \
@@ -174,7 +151,7 @@ PUT "https://petstore.swagger.io/v2/pet" \
 
 **cURL OAuth 2.0 Example**
 ```bash
-PUT "https://petstore.swagger.io/v2/pet" \
+PUT "https://petstore3.swagger.io/api/v3/pet" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
@@ -193,6 +170,7 @@ PUT "https://petstore.swagger.io/v2/pet" \
 | 422 | Validation exception |
 | default | Unexpected error |
 
+##### Response Example
 `200: Successful operation`
 ```json
 {
@@ -219,34 +197,21 @@ None
 ### Finding a Pet by Status
 Finds pets by their status.
 
-Endpoint: https://petstore.swagger.io/v2/pet/findByStatus
+Endpoint: https://petstore3.swagger.io/api/v3/pet/findByStatus
 
 Operation: `GET`
 
 #### Examples
-**API Key Example**
-```bash
-GET /v2/pet/findByStatus?status=available
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-```
-
-**OAuth 2.0 Example**
-```bash
-GET /v2/pet/findByStatus?status=available
-Host: petstore.swagger.io
-Authorization: Bearer <YOUR_OAUTH_TOKEN>
-```
 **cURL API Key Example**
 ```bash
-GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available" \
+GET "https://petstore3.swagger.io/api/v3/pet/findByStatus?status=available" \
 -H "accept: application/json" \
 -H "api_key: <YOUR_API_KEY>"
 ```
 
 **cURL OAuth 2.0 Example**
 ```bash
-GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available" \
+GET "https://petstore3.swagger.io/api/v3/pet/findByStatus?status=available" \
 -H "accept: application/json" \
 -H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
@@ -256,7 +221,7 @@ GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available" \
 | 200  | Successful operation |
 | 400  | Invalid input |
 | default | Unexpected error |
-
+#### Response Example
 `200: Successful operation`
 ```json
 [
@@ -289,34 +254,21 @@ GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available" \
 
 Finds pets by their tags.
 
-Endpoint: https://petstore.swagger.io/v2/pet/findByTags
+Endpoint: https://petstore3.swagger.io/api/v3/pet/findByTags
 
 Operation: `GET`
 
 #### Examples
-**API Key Example**
-```bash
-GET /v2/pet/findByTags?tags=string
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-```
-
-**OAuth 2.0 Example**
-```bash
-GET /v2/pet/findByTags?tags=string
-Host: petstore.swagger.io
-Authorization: Bearer <YOUR_OAUTH_TOKEN>
-```
 **cURL API Key Example**
 ```bash
-GET "https://petstore.swagger.io/v2/pet/findByTags?tags=string" \
+GET "https://petstore3.swagger.io/api/v3/pet/findByTags?tags=string" \
 -H "accept: application/json" \
 -H "api_key: <YOUR_API_KEY>"
 ```
 
 **cURL OAuth 2.0 Example**
 ```bash
-GET "https://petstore.swagger.io/v2/pet/findByTags?tags=string" \
+GET "https://petstore3.swagger.io/api/v3/pet/findByTags?tags=string" \
 -H "accept: application/json" \
 -H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
@@ -326,7 +278,7 @@ GET "https://petstore.swagger.io/v2/pet/findByTags?tags=string" \
 | 200  | Successful operation |
 | 400  | Invalid input |
 | default | Unexpected error |
-
+##### Response Example
 `200: Successful operation`
 ```json
 [
@@ -359,23 +311,22 @@ GET "https://petstore.swagger.io/v2/pet/findByTags?tags=string" \
 ### Finding a Pet by ID
 Finds a pet by its unique ID.
 
-Endpoint: https://petstore.swagger.io/v2/pet/{petId}
+Endpoint: https://petstore3.swagger.io/api/v3/pet/{petId}
 
 Operation: `GET`
 
 #### Examples
-**API Key Example**
-```bash
-GET /v2/pet/210
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-```
-
 **cURL API Key Example**
 ```bash
-GET "https://petstore.swagger.io/v2/pet/210" \
+GET "https://petstore3.swagger.io/api/v3/pet/210" \
 -H "accept: application/json" \
 -H "api_key: <YOUR_API_KEY>"
+```
+**cURL OAuth 2.0 Example**
+```bash
+GET "https://petstore3.swagger.io/api/v3/pet/210" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
@@ -384,7 +335,7 @@ GET "https://petstore.swagger.io/v2/pet/210" \
 | 400  | Invalid ID supplied |
 | 404  | Pet not found |
 | default | Unexpected error |
-
+#### Response Example
 `200: Successful operation`
 ```json
 {
@@ -415,25 +366,24 @@ GET "https://petstore.swagger.io/v2/pet/210" \
 ### Updating a Pet with Form Data
 Updates a pet in the store with form data.
 
-Endpoint: https://petstore.swagger.io/v2/pet/{petId}
+Endpoint: https://petstore3.swagger.io/api/v3/pet/{petId}
 
 Operation: `POST`
 
 #### Examples
-**API Key Example**
-```bash
-POST /v2/pet/210
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-Content-Type: application/x-www-form-urlencoded
-
-name=Krypto&status=available
-```
-
 **cURL API Key Example**
 ```bash
-POST "https://petstore.swagger.io/v2/pet/210" \
+POST "https://petstore3.swagger.io/api/v3/pet/210" \
 -H "api_key: <YOUR_API_KEY>" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+--data-urlencode "name=Krypto" \
+--data-urlencode "status=available"
+```
+**cURL OAuth 2.0 Example**
+```bash
+POST "https://petstore3.swagger.io/api/v3/pet/210" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 --data-urlencode "name=Krypto" \
 --data-urlencode "status=available"
@@ -449,26 +399,29 @@ POST "https://petstore.swagger.io/v2/pet/210" \
 | Name   | Type   | Description                                                                                             |
 |--------|--------|---------------------------------------------------------------------------------------------------------|
 | petId   | integer  | ID of pet that needs to be updated |
+##### Form Data Parameters
+| Name   | Type   | Description                                                                                             |
+|--------|--------|---------------------------------------------------------------------------------------------------------|
+| name   | string | Updated name of the pet. |
+| status | string | Updated status of the pet. |
 
 ### Deleting a Pet
 Deletes a pet from the database.
 
-Endpoint: https://petstore.swagger.io/v2/pet/{petId}
+Endpoint: https://petstore3.swagger.io/api/v3/pet/{petId}
 
 Operation: `DELETE`
 
 #### Examples
-**API Key Example**
-```bash
-DELETE /v2/pet/210
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-```
-
 **cURL API Key Example**
 ```bash
-DELETE "https://petstore.swagger.io/v2/pet/210" \
+DELETE "https://petstore3.swagger.io/api/v3/pet/210" \
 -H "api_key: <YOUR_API_KEY>"
+```
+**cURL OAuth 2.0 Example**
+```bash
+DELETE "https://petstore3.swagger.io/api/v3/pet/210" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
@@ -486,27 +439,25 @@ DELETE "https://petstore.swagger.io/v2/pet/210" \
 ### Uploading an Image
 Uploads an image for a pet.
 
-Endpoint: https://petstore.swagger.io/v2/pet/{petId}/uploadImage
+Endpoint: https://petstore3.swagger.io/api/v3/pet/{petId}/uploadImage
 
 Operation: `POST`
 
 #### Examples
-**API Key Example**
-```bash
-POST /v2/pet/210/uploadImage
-Host: petstore.swagger.io
-Content-Type: multipart/form-data
-api_key: <YOUR_API_KEY>
-
-(file contents)
-```
-
 **cURL API Key Example**
 ```bash
-POST "https://petstore.swagger.io/v2/pet/210/uploadImage" \
+POST "https://petstore3.swagger.io/api/v3/pet/210/uploadImage" \
 -H "accept: application/json" \
 -H "Content-Type: multipart/form-data" \
 -H "api_key: <YOUR_API_KEY>" \
+--form "file=@/path/to/your/file"
+```
+**cURL OAuth 2.0 Example**
+```bash
+POST "https://petstore3.swagger.io/api/v3/pet/210/uploadImage" \
+-H "accept: application/json" \
+-H "Content-Type: multipart/form-data" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
 --form "file=@/path/to/your/file"
 ```
 #### Responses
@@ -528,30 +479,34 @@ POST "https://petstore.swagger.io/v2/pet/210/uploadImage" \
 | Name   | Type   | Description                                                                                             |
 |--------|--------|---------------------------------------------------------------------------------------------------------|
 | petId   | integer  | ID of pet to update |
+##### Form Data Parameters
+| Name   | Type   | Description                                                                                             |
+|--------|--------|---------------------------------------------------------------------------------------------------------|
+| additionalMetadata | string | Additional data to pass to server. |
+| file | file | File to upload. |
 
 ## Store
-Access to Petstore orders.
+This section allows you to access Petstore orders.
 
 ### Getting Pet Inventories
 Returns pet inventories by status.
 
-Endpoint: https://petstore.swagger.io/v2/store/inventory
+Endpoint: https://petstore3.swagger.io/api/v3/store/inventory
 
 Operation: `GET`
 
 #### Examples
-**API Key Example**
-```bash
-GET /v2/store/inventory
-Host: petstore.swagger.io
-api_key: <YOUR_API_KEY>
-```
-
 **cURL API Key Example**
 ```bash
-GET "https://petstore.swagger.io/v2/store/inventory" \
+GET "https://petstore3.swagger.io/api/v3/store/inventory" \
 -H "accept: application/json" \
 -H "api_key: <YOUR_API_KEY>"
+```
+**cURL OAuth 2.0 Example**
+```bash
+GET "https://petstore3.swagger.io/api/v3/store/inventory" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
@@ -573,16 +528,32 @@ None
 ### Placing an Order
 Places an order for a pet.
 
-Endpoint: https://petstore.swagger.io/v2/store/order
+Endpoint: https://petstore3.swagger.io/api/v3/store/order
 
 Operation: `POST`
 
 #### Examples
-**cURL Example**
+**cURL API Key Example**
 ```bash
-POST "https://petstore.swagger.io/v2/store/order" \
+POST "https://petstore3.swagger.io/api/v3/store/order" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
+-H "api_key: <YOUR_API_KEY>" \
+-d '{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2025-08-11T15:13:06.939Z",
+  "status": "placed",
+  "complete": false
+}'
+```
+**cURL OAuth 2.0 Example**
+```bash
+POST "https://petstore3.swagger.io/api/v3/store/order" \
+-H "accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
 -d '{
   "id": 0,
   "petId": 0,
@@ -616,16 +587,24 @@ None
 ### Finding a Purchase Order
 Finds a purchase order by its ID.
 
-Endpoint: https://petstore.swagger.io/v2/store/order/{orderId}
+Endpoint: https://petstore3.swagger.io/api/v3/store/order/{orderId}
 
 Operation: `GET`
 
 #### Examples
-**cURL Example**
+**cURL API Key Example**
 ```bash
-GET "https://petstore.swagger.io/v2/store/order/1" \
--H "accept: application/json"
+GET "https://petstore3.swagger.io/api/v3/store/order/1" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
 ```
+**cURL OAuth 2.0 Example**
+```bash
+GET "https://petstore3.swagger.io/api/v3/store/order/1" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
+```
+
 #### Responses
 | Code | Description |
 |------|-------------|
@@ -649,24 +628,33 @@ GET "https://petstore.swagger.io/v2/store/order/1" \
 ##### Path Parameters
 | Name   | Type   | Description                                                                                             |
 |--------|--------|---------------------------------------------------------------------------------------------------------|
-| orderId   | integer  | ID of pet that needs to be fetched |
+| orderId   | integer  | ID of the purchase order to be fetched |
 
 ### Deleting a Purchase Order
 Deletes a purchase order by its ID.
 
-Endpoint: https://petstore.swagger.io/v2/store/order/{orderId}
+Endpoint: https://petstore3.swagger.io/api/v3/store/order/{orderId}
 
 Operation: `DELETE`
 
 #### Examples
-**cURL Example**
+
+**cURL API Key Example**
 ```bash
-DELETE "https://petstore.swagger.io/v2/store/order/1" \
--H "accept: application/json"
+DELETE "https://petstore3.swagger.io/api/v3/store/order/1" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+```
+**cURL OAuth 2.0 Example**
+```bash
+DELETE "https://petstore3.swagger.io/api/v3/store/order/1" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
 |------|-------------|
+| 200  | order deleted |
 | 400  | Invalid ID supplied |
 | 404  | Order not found |
 | default | Unexpected error |
@@ -678,20 +666,38 @@ DELETE "https://petstore.swagger.io/v2/store/order/1" \
 | orderId   | integer  | ID of the order that needs to be deleted |
 
 ## User
-Operations about user.
+This section describes operations related to users.
 
 ### Creating a User
 Creates a new user account.
 
-Endpoint: https://petstore.swagger.io/v2/user
+Endpoint: https://petstore3.swagger.io/api/v3/user
 
 Operation: `POST`
 
 #### Examples
-**cURL Example**
+**cURL API Key Example**
 ```bash
-POST "https://petstore.swagger.io/v2/user" \
+POST "https://petstore3.swagger.io/api/v3/user" \
 -H "accept: application/json" \
+-H "Content-Type: application/json" \
+-H "api_key: <YOUR_API_KEY>" \
+-d '{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}'
+```
+**cURL OAuth 2.0 Example**
+```bash
+POST "https://petstore3.swagger.io/api/v3/user" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
 -H "Content-Type: application/json" \
 -d '{
   "id": 0,
@@ -712,19 +718,20 @@ POST "https://petstore.swagger.io/v2/user" \
 #### Parameters
 None
 
-### Creating a List of Users with Array
-Creates list of users with given input array.
+### Creating a List of Users with List
+Creates list of users with given input list.
 
-Endpoint: https://petstore.swagger.io/v2/user/createWithArray
+Endpoint: https://petstore3.swagger.io/api/v3/user/createWithList
 
 Operation: `POST`
 
 #### Examples
-**cURL Example**
+**API Key cURL Example**
 ```bash
-POST "https://petstore.swagger.io/v2/user/createWithArray" \
+POST "https://petstore3.swagger.io/api/v3/user/createWithList" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
+-H "api_key: <YOUR_API_KEY>" \
 -d '[
   {
     "id": 0,
@@ -738,27 +745,12 @@ POST "https://petstore.swagger.io/v2/user/createWithArray" \
   }
 ]'
 ```
-#### Responses
-| Code | Description |
-|------|-------------|
-| default | successful operation |
-
-#### Parameters
-None
-
-### Creating a List of Users with List
-Creates list of users with given input list.
-
-Endpoint: https://petstore.swagger.io/v2/user/createWithList
-
-Operation: `POST`
-
-#### Examples
-**cURL Example**
+**OAuth 2.0 cURL Example**
 ```bash
-POST "https://petstore.swagger.io/v2/user/createWithList" \
+POST "https://petstore3.swagger.io/api/v3/user/createWithList" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
 -d '[
   {
     "id": 0,
@@ -783,15 +775,22 @@ None
 ### Logging In
 Logs user into the system.
 
-Endpoint: https://petstore.swagger.io/v2/user/login
+Endpoint: https://petstore3.swagger.io/api/v3/user/login
 
 Operation: `GET`
 
 #### Examples
-**cURL Example**
+**API Key cURL Example**
 ```bash
-GET "https://petstore.swagger.io/v2/user/login?username=string&password=string" \
--H "accept: application/json"
+GET "https://petstore3.swagger.io/api/v3/user/login?username=string&password=string" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+```
+**OAuth 2.0 cURL Example**
+```bash
+GET "https://petstore3.swagger.io/api/v3/user/login?username=string&password=string" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
@@ -799,12 +798,18 @@ GET "https://petstore.swagger.io/v2/user/login?username=string&password=string" 
 | 200  | successful operation |
 | 400  | Invalid username/password supplied |
 | default | Unexpected error |
-
+#### Response Example
 `200: successful operation`
-
-Headers:
-`X-Rate-Limit`: Calls per hour allowed by the user.
-`X-Expires-After`: Date in UTC when token expires.
+```json
+{
+  "message": "logged in user session:abcdef12345"
+}
+```
+**Headers:**
+| Name| Description |Type|
+|------|-------------|----|
+| `X-Rate-Limit`| Calls per hour allowed by the user. | integer |
+| `X-Expires-After`| Date in UTC when token expires. | string |
 
 #### Parameters
 ##### Query Parameters
@@ -816,36 +821,57 @@ Headers:
 ### Logging Out
 Logs out current logged in user session.
 
-Endpoint: https://petstore.swagger.io/v2/user/logout
+Endpoint: https://petstore3.swagger.io/api/v3/user/logout
 
 Operation: `GET`
 
 #### Examples
-**cURL Example**
+**API Key cURL Example**
 ```bash
-GET "https://petstore.swagger.io/v2/user/logout" \
--H "accept: application/json"
+GET "https://petstore3.swagger.io/api/v3/user/logout" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+```
+**OAuth 2.0 cURL Example**
+```bash
+GET "https://petstore3.swagger.io/api/v3/user/logout" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
 |------|-------------|
+| 200  | successful operation |
 | default | successful operation |
-
+##### Response Example
+`200: successful operation`
+```json
+{
+  "message": "Successfully logged out"
+}
+```
 #### Parameters
 None
 
 ### Getting User by Username
 Gets a user by their username.
 
-Endpoint: https://petstore.swagger.io/v2/user/{username}
+Endpoint: https://petstore3.swagger.io/api/v3/user/{username}
 
 Operation: `GET`
 
 #### Examples
-**cURL Example**
+**API Key cURL Example**
 ```bash
-GET "https://petstore.swagger.io/v2/user/user1" \
--H "accept: application/json"
+GET "https://petstore3.swagger.io/api/v3/user/user1" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+```
+**OAuth 2.0 cURL Example**
+```bash
+GET "https://petstore3.swagger.io/api/v3/user/user1" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
@@ -859,7 +885,7 @@ GET "https://petstore.swagger.io/v2/user/user1" \
 ```json
 {
   "id": 0,
-  "username": "user1",
+  "username": "string",
   "firstName": "string",
   "lastName": "string",
   "email": "string",
@@ -872,21 +898,39 @@ GET "https://petstore.swagger.io/v2/user/user1" \
 ##### Path Parameters
 | Name   | Type   | Description                                                                                             |
 |--------|--------|---------------------------------------------------------------------------------------------------------|
-| username   | string  | The name that needs to be fetched. Use user1 for testing. |
+| username   | string  | The username of the user to be fetched. Use "user1" for testing. |
 
 ### Updating a User
 Updates a user.
 
-Endpoint: https://petstore.swagger.io/v2/user/{username}
+Endpoint: https://petstore3.swagger.io/api/v3/user/{username}
 
 Operation: `PUT`
 
 #### Examples
-**cURL Example**
+**API Key cURL Example**
 ```bash
-PUT "https://petstore.swagger.io/v2/user/user1" \
+PUT "https://petstore3.swagger.io/api/v3/user/user1" \
 -H "accept: application/json" \
 -H "Content-Type: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+-d '{
+  "id": 0,
+  "username": "user1",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}'
+```
+**OAuth 2.0 cURL Example**
+```bash
+PUT "https://petstore3.swagger.io/api/v3/user/user1" \
+-H "accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>" \
 -d '{
   "id": 0,
   "username": "user1",
@@ -909,20 +953,27 @@ PUT "https://petstore.swagger.io/v2/user/user1" \
 ##### Path Parameters
 | Name   | Type   | Description                                                                                             |
 |--------|--------|---------------------------------------------------------------------------------------------------------|
-| username   | string  | The name that needs to be updated |
+| username   | string  | The username of the user that needs to be updated |
 
 ### Deleting a User
 Deletes a user.
 
-Endpoint: https://petstore.swagger.io/v2/user/{username}
+Endpoint: https://petstore3.swagger.io/api/v3/user/{username}
 
 Operation: `DELETE`
 
 #### Examples
-**cURL Example**
+**API Key cURL Example**
 ```bash
-DELETE "https://petstore.swagger.io/v2/user/user1" \
--H "accept: application/json"
+DELETE "https://petstore3.swagger.io/api/v3/user/user1" \
+-H "accept: application/json" \
+-H "api_key: <YOUR_API_KEY>"
+```
+**OAuth 2.0 cURL Example**
+```bash
+DELETE "https://petstore3.swagger.io/api/v3/user/user1" \
+-H "accept: application/json" \
+-H "Authorization: Bearer <YOUR_OAUTH_TOKEN>"
 ```
 #### Responses
 | Code | Description |
@@ -935,11 +986,13 @@ DELETE "https://petstore.swagger.io/v2/user/user1" \
 ##### Path Parameters
 | Name   | Type   | Description                                                                                             |
 |--------|--------|---------------------------------------------------------------------------------------------------------|
-| username   | string  | The name that needs to be deleted |
+| username   | string  | The username of the user that needs to be deleted |
 
 # Conclusion
-This document is meant to provide an in-depth guide for the Petstore API as I would write it if I were a company's technical writer/documentation specialist. 
+This document is meant to provide an in-depth guide for the Petstore API as I would write it if I were a company's technical writer/documentation specialist. In true "docs-as-code" fashion, I'm going to treat this document as living code, continuously improving it based on feedback and changing requirements.
 
-It includes detailed information about the API endpoints, examples on how to make calls to the API, the parameters required for each endpoint, and the expected responses. This should serve as a comprehensive resource for developers working with the Petstore API.
+It includes detailed information about the API endpoints, examples of how to make calls to the API, the parameters required for each endpoint, and the expected responses. This should serve as a comprehensive resource for developers working with the Petstore API.
 
-This sample API was created using Swagger, a powerful open-source framework for API development. It's not intended for production use but rather as a demonstration of how I'd document an API. You can find out more about Swagger at [https://swagger.io](https://swagger.io) or on [irc.freenode.net, #swagger](irc://irc.freenode.net/swagger).
+This sample API was created using Swagger, a powerful open-source framework for API development. It's not intended for production use but rather as a demonstration of how I'd document an API. You can find out more about Swagger at [https://swagger.io](https://swagger.io) or on [irc.freenode.net, #swagger](irc://irc.freenode.net/swagger). 
+
+And of course, the mandatory dog tax here's [Ace](20210327_200932.jpg).
