@@ -1,3 +1,7 @@
+<!--test
+testId: stripe-api-docs
+detectSteps: false
+-->
 # Introduction
 
 The Stripe API allows merchants to build a platform, marketplace, or any other type of business with a solid foundation that allows for secure transactions and money movement.
@@ -13,17 +17,20 @@ The Stripe API allows a developer to:
 
 To connect to the Stripe API, you need the base URL: https://api.stripe.com/.
 
-**NOTE**: See [Using Postman to Connect to the Stripe API](https://github.com/pvega62/Portfolio/wiki/Using-Postman-to-Connect-to-the-Stripe-API) for detailed instructions on generating the token and using it to authenticate your connection.
 
 ## Authentication
 
-Stripe API requires a secret API token for authentication. All requests must be authorized and made over HTTPS. Unauthorized requests or requests made over HTTP will fail.
+Stripe API requires a secret API token for authentication. All requests must be authorized and made over `HTTPS`. Unauthorized requests or requests made over `HTTP` will fail.
 
 These tokens, also called secret keys, are found on your Stripe dashboard. See [Using Postman to Connect to the Stripe API](https://github.com/pvega62/Portfolio/wiki/Using-Postman-to-Connect-to-the-Stripe-API) for detailed instructions on generating the token and using it to authenticate your connection.
 
 **NOTE**: For security purposes, the secret key must not be shared with other users.
 
-# API Reference
+<!-- step checkLink: "https://github.com/pvega62/Portfolio/wiki/Using-Postman-to-Connect-to-the-Stripe-API" -->
+<!-- step goTo: "https://github.com/pvega62/Portfolio/wiki/Using-Postman-to-Connect-to-the-Stripe-API" -->
+<!-- step find: "Setting Up Postman" -->
+
+# API Functions
 
 ### Balance
 
@@ -34,13 +41,6 @@ Endpoint: https://api.stripe.com/v1/balance
 Operation: `GET`
 
 #### Examples
-**HTTPS Example**
-```http
-GET /v1/balance HTTP/1.1
-Host: api.stripe.com
-Authorization: Bearer <YOUR_SECRET_KEY>
-```
-
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/balance \
@@ -90,7 +90,6 @@ Responses will return standard codes.
 }
 ```
 #### Error Responses
-
 `400: Bad Request`
 ```json
 {
@@ -128,12 +127,6 @@ Endpoint: https://api.stripe.com/v1/balance_transactions/{id}
 Operation: `GET`
 
 #### Examples
-**HTTPS Example**
-```http
-GET /v1/balance_transactions/tr_1234567890 HTTP/1.1
-Host: api.stripe.com
-Authorization: Bearer <YOUR_SECRET_KEY>
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/balance_transactions/tr_1234567890 \
@@ -206,13 +199,6 @@ Endpoint: https://api.stripe.com/v1/payment_intents
 Operation: `GET`
 
 #### Examples
-**HTTPS Example**
-```http
-GET /v1/payment_intents HTTP/1.1
-Host: api.stripe.com
-Authorization: Bearer <YOUR_SECRET_KEY>
-Content-Type: application/x-www-form-urlencoded
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/payment_intents \
@@ -283,15 +269,8 @@ Endpoint: https://api.stripe.com/v1/payment_intents
 
 Operation: `POST`
 
-**NOTE**: The **confirm** request must be made over **HTTPS**.
+**NOTE**: The `confirm` request must be made over `HTTPS`.
 #### Examples
-**HTTPS Example**  
-```http
-POST /v1/payment_intents HTTP/1.1
-Host: api.stripe.com
-Authorization: Bearer <YOUR_SECRET_KEY>
-Content-Type: application/x-www-form-urlencoded
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/payment_intents \
@@ -431,12 +410,6 @@ Endpoint: https://api.stripe.com/v1/payment_intents/search
 
 Operation: `GET`
 #### Examples
-**HTTPS Example**
-```http
-GET /v1/payment_intents/search?query=amount:1000 HTTP/1.1
-Host: api.stripe.com
-Authorization: Bearer <YOUR_SECRET_KEY>
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/payment_intents/search?query=amount:1000 \
@@ -498,12 +471,6 @@ Endpoint: https://api.stripe.com/v1/refunds
 
 Operation: `POST`
 #### Examples
-**HTTPS Example**
-```http
-POST /v1/refunds HTTP/1.1
-Host: api.stripe.com
-Authorization: Bearer <YOUR_SECRET_KEY>
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/refunds \
@@ -575,7 +542,7 @@ Responses will return standard codes.
 | `customer` | string | ID of the customer to whom the charge belongs. |
 | `reason` | string | Reason for the refund. If set, possible values are `duplicate`, `fraudulent`, or `requested_by_customer`. If set as `fraudulent`, the card and email associated with the charge will be added to your block lists, and will help improve Stripe's fraud detection. |
 | `payment_intent` | string | ID of the PaymentIntent to refund. |
-| `refund_application_fee` | boolean | Indicates whether the application fee should be refunded. If a the full amount is refunded, the application fee will be refunded as well. Otherwise, the application fee will be refunded proportionally to the refund. An application fee can only be the application that created the charge.| 
+| `refund_application_fee` | boolean | Indicates whether the application fee should be refunded. If the full amount is refunded, the application fee will be refunded as well. Otherwise, the application fee will be refunded proportionally to the refund. An application fee can only be the application that created the charge.| 
 | `origin`| string | The origin of the refund. |
 | `reverse_transfer` | boolean | Indicates whether the transfer should be reversed. Transfer is reversed proportionally to the refund amount (full or partial refund). |
 | `instructions_email` | string | Uses customer's email address for refund instructions when payment method without refund support is used. |
@@ -589,12 +556,6 @@ Endpoint: https://api.stripe.com/v1/refunds/{id}
 
 Operation: `POST`
 #### Examples
-**HTTPS Example**
-```http
-POST /v1/refunds/{id} HTTP/1.1
-Host: api.stripe.com
-Authorization: <YOUR_SECRET_KEY>
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/refunds/{id} \
@@ -671,12 +632,6 @@ Endpoint: https://api.stripe.com/v1/refunds/{id}
 
 Operation: `GET`
 #### Examples
-**HTTPS Example**
-```http
-GET /v1/refunds/{id} HTTP/1.1
-Host: api.stripe.com
-Authorization: <YOUR_SECRET_KEY>
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/refunds/re_1Nispe2eZvKYlo2Cd31jOCgZ \
@@ -745,12 +700,6 @@ Endpoint: https://api.stripe.com/v1/refunds
 
 Operation: `GET`
 #### Examples
-**HTTPS Example**
-```http
-GET /v1/refunds HTTP/1.1
-Host: api.stripe.com
-Authorization: <YOUR_SECRET_KEY>
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/refunds \
@@ -824,7 +773,7 @@ Responses will return standard codes.
 | `created [gte]` | integer | Returns refunds only created during the given date intervals. |
 | `created [lt]` | integer | Returns refunds only created during the given date intervals. |
 | `created [lte]` | integer | Returns refunds only created during the given date intervals. |
-| `ending_before` | string | A cursor for use in pagination. Use the object ID `ending_before` to define your place in the list. If you make a list request and recieve 100 results, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` to fetch the previous page of the list. |
+| `ending_before` | string | A cursor for use in pagination. Use the object ID `ending_before` to define your place in the list. If you make a list request and receive 100 results, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` to fetch the previous page of the list. |
 | `limit` | integer | A limit on the number of objects to be returned. Limit can range between 1 and 100. The default is 10. |
 | `payment_intent` | string | ID of the PaymentIntent to retrieve refunds for. If not specified, all refunds will be returned. |
 | `starting_after` | string | A cursor for use in pagination. Use the object ID `starting_after` to define your place in the list. If you make a list request and receive 100 results, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` to fetch the next page of the list. |
@@ -837,12 +786,6 @@ Endpoint: https://api.stripe.com/v1/charges/{id}
 
 Operation: `GET`
 #### Examples
-**HTTPS Example**
-```http
-GET /v1/charges/{id} HTTP/1.1
-Host: api.stripe.com
-Authorization: <YOUR_SECRET_KEY>
-```
 **cUrl Example:**
 ```bash
 curl https://api.stripe.com/v1/charges/ch_1NirD82eZvKYlo2CIvbtLWuY \
@@ -1001,8 +944,9 @@ Responses will return standard codes.
 | `id` | string |**(Required)** The ID of the charge to retrieve. |
 
 # Conclusion
-This document is meant to provide a sampling of the Stripe API documentation as I would write it as a Stripe technical writer. It includes commonly used API endpoints, examples on how to make calles to the API, the parameters to attach to them and the expected responses.
+This document is meant to provide a sampling of the Stripe API documentation as I would write it as a Stripe technical writer. It includes commonly used API endpoints, examples on how to make calls to the API, the parameters to attach to them and the expected responses.
 
 The API documentation is not exhaustive and I would not recommend using it to build a functional application. (Unless you can, in which case, let me know so I can take all the credit.)
 
 This document was created using the Stripe API collection from April 2024 in the Postman application. Please visit the [Official Stripe API documentation](https://stripe.com/docs/api) for the most up-to-date branches and pertaining documentation.
+<!-- testEnd -->

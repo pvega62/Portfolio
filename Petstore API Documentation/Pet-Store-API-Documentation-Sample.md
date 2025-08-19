@@ -24,11 +24,11 @@
 For this example, we'll use a dog (Krypto) and the ID number 210.
 ## Connection Prerequisites
 
- The base URL for all API requests is `https://petstore3.swagger.io/api/v3`.
+ The base URL of all API requests is `https://petstore3.swagger.io/api/v3`.
 ## Authentication
  To authenticate your connection to the Petstore's API, use OAuth 2.0 or an assigned API key. To be assigned a key, email budbaker@bhavenpets.com.
 
-  **NOTE**: For security purposes, API keys must not be shared with other users. If you suspect that your API key has been compromised, please contact us immediately to revoke the old key and issue a new one.
+  **NOTE**: For security purposes, API keys must not be shared with other users. If you suspect that your API key is compromised, please contact us immediately to revoke the old key and issue a new one.
 
 # Functions
 ## Pets
