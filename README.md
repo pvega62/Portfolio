@@ -1,9 +1,10 @@
-# Welcome to my Portfolio,
-This is my portfolio showcasing various technical writing projects, including API documentation, installation guides, and user manuals. 
+# Welcome to the portfolio
+This portfolio showcases technical writing projects, including API documentation, installation guides, and user manuals. For those samples, head to the [Wiki](https://github.com/pvega62/Portfolio/wiki) section.
 
-Each piece demonstrates my ability to create clear and concise documentation tailored to the needs of the target audience.
+Each piece demonstrates the ability to create clear and concise documentation tailored to the needs of the target audience.
 
-To view an example of my work in HTML, JavaScript, and CSS, visit the [Recordkeeping Site](https://pvega62.github.io/Recordkeeping/) or check out the [GitHub Repository](https://github.com/pvega62/Recordkeeping). Recordkeeping is a website I designed to keep track of my record collection, it includes the ability to listen to a featured track by clicking on the album cover.
+To view an example of work in HTML, JavaScript, and Bootstrap CSS, visit the [Recordkeeping Site](https://pvega62.github.io/Recordkeeping/) or check out the [corresponding repository](https://github.com/pvega62/Recordkeeping). Recordkeeping, a website designed to keep track of a record collection, includes the ability to listen to a featured track by clicking on the album cover.
 
-Also check out this HTML version of my resume created with Bootstrap [here](https://pvega62.github.io/Resume/).
-Feel free to explore the different sections and examples of my work. If you have any questions or would like to discuss potential collaborations, please don't hesitate to reach out!
+You can also view an HTML version of a résumé, created with HTML and basic CSS, [here](https://pvega62.github.io/Resume/) or check out the [corresponding repository](https://github.com/pvega62/Resume).
+
+Feel free to explore the different sections and examples of work. If you have any questions or would like to discuss potential collaborations, please don't hesitate to get in touch.
