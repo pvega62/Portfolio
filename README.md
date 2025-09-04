@@ -1,4 +1,7 @@
-# Welcome to my portfolio
+# Welcome to my portfolio!
+
+With over a decade of cross-industry experience, the majority of my work has always centered around demystifying complex concepts and making them accessible to the wider audience. This was my goal as a tutor, a journalist, and it remains my goal as a technical writer and UX writer.
+
 This portfolio showcases technical writing projects, including API documentation, installation guides, and user manuals. For those samples, head to the [Wiki](https://github.com/pvega62/Portfolio/wiki) section.
 
 Each piece demonstrates the ability to create clear and concise documentation tailored to the needs of the target audience.
