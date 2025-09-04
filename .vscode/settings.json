@@ -1,4 +1,4 @@
 {
-    "editor.wrapOnEscapedLineFeeds": false,
+    "editor.wrapOnEscapedLineFeeds": true,
     "editor.wordWrap": "on"
 }
