@@ -1,4 +1,4 @@
-# Welcome to my portfolio!
+# Welcome to my portfolio
 
 With over a decade of cross-industry experience, the majority of my work has always centered around demystifying complex concepts and making them accessible to the wider audience. This was my goal as a tutor, a journalist, and it remains my goal as a technical writer and UX writer.
 
