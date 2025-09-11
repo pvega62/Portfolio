@@ -41,10 +41,10 @@ Endpoint: https://api.stripe.com/v1/balance
 Operation: `GET`
 
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/balance \
-    -u <YOUR_SECRET_KEY>:
+curl -X GET https://api.stripe.com/v1/balance \
+  -u <YOUR_SECRET_KEY>:
 ```
 #### Responses
 
@@ -114,9 +114,9 @@ Responses will return standard codes.
 
 ##### Query Parameters
 
-| Parameter | Type | Description |
+| Parameter | Type | Description | 
 |-----------|------|-------------|
-| `expand[]` | array of strings | Specifies which fields in the response should be expanded. |
+| `expand[]` | array of strings | Specifies which fields in the response should be expanded. | 
 
 ### Retrieve a Balance Transaction
 
@@ -127,10 +127,10 @@ Endpoint: https://api.stripe.com/v1/balance_transactions/{id}
 Operation: `GET`
 
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/balance_transactions/tr_1234567890 \
-    -u <YOUR_SECRET_KEY>:
+curl -X GET https://api.stripe.com/v1/balance_transactions/tr_1234567890 \
+  -u <YOUR_SECRET_KEY>:
 ```
 
 #### Responses
@@ -182,13 +182,13 @@ Responses will return standard codes.
 
 ##### Query Parameters
 
-| Parameter | Type | Description |
+| Parameter | Type | Description | 
 |-----------|------|-------------|
-| `expand[]` | array of strings | Specifies which fields in the response should be expanded. |
+| `expand[]` | array of strings | Specifies which fields in the response should be expanded. | 
 ##### Path Variables
-| Name | Type | Required | Description |
+| Name | Type | Required | Description | 
 |------|------|----------|-------------|
-| `id` | string | Required | Path variable identifier |
+| `id` | string | Required | Path variable identifier | 
 
 ### List all Payment Intents
 
@@ -199,10 +199,10 @@ Endpoint: https://api.stripe.com/v1/payment_intents
 Operation: `GET`
 
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/payment_intents \
-    -u <YOUR_SECRET_KEY>:
+curl -X GET https://api.stripe.com/v1/payment_intents \
+  -u <YOUR_SECRET_KEY>:
 ```
 
 #### Responses
@@ -271,14 +271,11 @@ Operation: `POST`
 
 **NOTE**: The `confirm` request must be made over `HTTPS`.
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/payment_intents \
+curl -X POST https://api.stripe.com/v1/payment_intents \
   -u <YOUR_SECRET_KEY>: \
-  -d amount=212 \
-  -d currency=usd \
-  -d payment_method=pm_card_visa \
-  -d confirm=true
+  -d "amount=212&currency=usd&payment_method=pm_card_visa&confirm=true"
 ```  
 #### Responses
 
@@ -386,7 +383,7 @@ Responses will return standard codes.
 ##### Body Parameters
 
 | Parameter | Type | Description |
-|--------------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `amount` | integer | **(Required)** Amount intended to be collected. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00). |
 | `currency` | string | **(Required)** Three-letter ISO currency code, in lowercase. Must be a supported currency. |
 | `confirm` | boolean | Set to true to attempt to confirm this PaymentIntent immediately. |
@@ -410,10 +407,10 @@ Endpoint: https://api.stripe.com/v1/payment_intents/search
 
 Operation: `GET`
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/payment_intents/search?query=amount:1000 \
-    -u <YOUR_SECRET_KEY>:
+curl -X GET "https://api.stripe.com/v1/payment_intents/search?query=amount:1000" \
+  -u <YOUR_SECRET_KEY>:
 ```
 #### Responses
 
@@ -471,11 +468,11 @@ Endpoint: https://api.stripe.com/v1/refunds
 
 Operation: `POST`
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/refunds \
+curl -X POST https://api.stripe.com/v1/refunds \
   -u <YOUR_SECRET_KEY>: \
-  -d charge=ch_1NirD82eZvKYlo2CIvbtLWuY
+  -d "charge=ch_1NirD82eZvKYlo2CIvbtLWuY"
 ```
 #### Responses
 
@@ -548,19 +545,17 @@ Responses will return standard codes.
 | `instructions_email` | string | Uses customer's email address for refund instructions when payment method without refund support is used. |
 
 ### Update a Refund
-Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
-
-**NOTE**: Request only accepts `metadata` as an argument.
+Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged. This is useful for storing additional information about the refund.
 
 Endpoint: https://api.stripe.com/v1/refunds/{id}
 
 Operation: `POST`
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/refunds/{id} \
+curl -X POST https://api.stripe.com/v1/refunds/{id} \
   -u <YOUR_SECRET_KEY>: \
-  -d metadata[order_id]=6735
+  -d "metadata[order_id]=6735"
 ```
 #### Responses
 
@@ -585,7 +580,9 @@ Responses will return standard codes.
     },
     "type": "card"
   },
-  "metadata": {},
+  "metadata": {
+    "order_id": "6735"
+  },
   "payment_intent": "pi_1GszsK2eZvKYlo2CfhZyoZLp",
   "reason": null,
   "receipt_number": null,
@@ -616,15 +613,18 @@ Responses will return standard codes.
   }
 }
 ```
-#### Parameters 
+#### Parameters
 ##### Body Parameters
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `metadata`| object | Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. |
 | `expand[]` | array of strings | Specifies which fields in the response should be expanded. |
+
 ##### Path Variables
-| Name | Type | Description |
-|------|------|-------------|
-| `id` | string |**(Required)** The ID of the refund to update. |
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `id` | string | Required | The ID of the refund to update. |
+
 ### Retrieve a Refund
 Retrieves the details of a specific refund.
 
@@ -632,10 +632,10 @@ Endpoint: https://api.stripe.com/v1/refunds/{id}
 
 Operation: `GET`
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/refunds/re_1Nispe2eZvKYlo2Cd31jOCgZ \
-  -u <YOUR_SECRET_KEY>: \
+curl -X GET https://api.stripe.com/v1/refunds/re_1Nispe2eZvKYlo2Cd31jOCgZ \
+  -u <YOUR_SECRET_KEY>:
 ```
 #### Responses
 
@@ -692,7 +692,15 @@ Responses will return standard codes.
 }
 ```
 #### Parameters
-None.
+##### Query Parameters
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `expand[]` | array of strings | Specifies which fields in the response should be expanded. |
+##### Path Variables
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `id` | string | Required | The ID of the refund to retrieve. |
+
 ### List all Refunds
 Returns a list of existing refunds. Refunds return in sorted order, with the most recent refunds appearing first. The 10 most recent refunds are returned by default.
 
@@ -700,10 +708,10 @@ Endpoint: https://api.stripe.com/v1/refunds
 
 Operation: `GET`
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/refunds \
-  -u <YOUR_SECRET_KEY>: \
+curl -X GET https://api.stripe.com/v1/refunds \
+  -u <YOUR_SECRET_KEY>:
 ```
 #### Responses
 Responses will return standard codes. 
@@ -769,10 +777,7 @@ Responses will return standard codes.
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `charge` | string | ID of the charge to retrieve refunds for. If not specified, all refunds will be returned. |
-| `created [gt]` | integer | Returns refunds only created during the given date intervals. |
-| `created [gte]` | integer | Returns refunds only created during the given date intervals. |
-| `created [lt]` | integer | Returns refunds only created during the given date intervals. |
-| `created [lte]` | integer | Returns refunds only created during the given date intervals. |
+| `created` | dictionary | Returns refunds only created during the given date intervals. This can be a dictionary with the following keys: `gt`, `gte`, `lt`, `lte`. |
 | `ending_before` | string | A cursor for use in pagination. Use the object ID `ending_before` to define your place in the list. If you make a list request and receive 100 results, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` to fetch the previous page of the list. |
 | `limit` | integer | A limit on the number of objects to be returned. Limit can range between 1 and 100. The default is 10. |
 | `payment_intent` | string | ID of the PaymentIntent to retrieve refunds for. If not specified, all refunds will be returned. |
@@ -786,9 +791,9 @@ Endpoint: https://api.stripe.com/v1/charges/{id}
 
 Operation: `GET`
 #### Examples
-**cUrl Example:**
+**cURL Example:**
 ```bash
-curl https://api.stripe.com/v1/charges/ch_1NirD82eZvKYlo2CIvbtLWuY \
+curl -X GET https://api.stripe.com/v1/charges/ch_1NirD82eZvKYlo2CIvbtLWuY \
   -u <YOUR_SECRET_KEY>:
 ```
 #### Responses
@@ -943,7 +948,7 @@ Responses will return standard codes.
 |------|------|-------------|
 | `id` | string |**(Required)** The ID of the charge to retrieve. |
 
-# Conclusion
+## Author's Note
 This document is meant to provide a sampling of the Stripe API documentation as I would write it as a Stripe technical writer. It includes commonly used API endpoints, examples on how to make calls to the API, the parameters to attach to them and the expected responses.
 
 The API documentation is not exhaustive and I would not recommend using it to build a functional application. (Unless you can, in which case, let me know so I can take all the credit.)
