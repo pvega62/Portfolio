@@ -514,7 +514,8 @@ POST "https://petstore3.swagger.io/api/v3/pet/210/uploadImage" \
 |--------|--------|---------------------------------------------------------------------------------------------------------|
 | petId   | integer  | ID of pet to update |
 ##### Form Data Parameters
-| Name   | Type   | Description                                                                                             |
+| Name   | Type   | Description|
+|--------|--------|------------|
 | additionalMetadata | string | Additional data to pass to server. |
 | file | file | File to upload. |
 
