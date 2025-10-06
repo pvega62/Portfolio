@@ -1,0 +1,94 @@
+:root { --tan: #d4d1ce; --dark: #1f3850; --offwhite: #e1dedb; }
+
+body { background: var(--dark); font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.navbar-dark.bg-custom-dark { background-color: var(--dark) !important; }
+.navbar-nav .nav-link { padding: 0.4rem 0.75rem; color: #e1dedb; }
+.hero-section { background: var(--dark); color: #e1dedb; padding-bottom: 4.5rem; }
+.hero-section h1 { color: #e1dedb; }
+.bg-tan { background-color: var(--offwhite); }
+.bg-custom-dark { background-color: var(--dark); }
+/* Card styling to match the screenshot */
+.card { 
+  border-radius: 6px; 
+  box-shadow: 0 6px 14px rgba(31,56,80,0.08); 
+  background-color: var(--tan);
+}
+.card .card-body { text-align: center; }
+.card-title { color: #222; }
+.card-text { color: #666; }
+.card-img-top { background: #f1f1f1; }
+.thumb-180 { height: 180px; object-fit: cover; display:block; width:100%; }
+.no-underline { text-decoration: none; color: inherit; }
+/* Ensure rows have spacing and alternating band look */
+.bg-tan .card { background-color: #fff; }
+.card-border { border: none; }
+/* adjust container background bands to be flush edge-to-edge */
+.bg-tan, .bg-custom-dark { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; }
+@media (max-width: 767px) { .hero-section { padding-bottom: 3rem; } }
+
+.browser-frame {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.browser-header {
+  background-color: #f1f1f1;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.browser-dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.browser-dot.red {
+  background-color: #ff5f56;
+}
+
+.browser-dot.yellow {
+  background-color: #ffbd2e;
+}
+
+.browser-dot.green {
+  background-color: #27c93f;
+}
+
+.browser-body {
+  padding: 10px;
+  font-family: monospace;
+  font-size: 12px;
+  background-color: #fff;
+  color: #333;
+  text-align: left;
+}
+
+.text-color-dark {
+  color: var(--dark);
+}
+
+.ux-card {
+  background-color: #ffffff;
+  border: 1px solid #1f3850;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.ux-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.ux-card .card-title {
+  color: #1f3850;
+  font-weight: bold;
+}
+
+.ux-card .card-text {
+  color: #555;
+}

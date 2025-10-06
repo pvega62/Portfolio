@@ -1,0 +1,136 @@
+/* Extracted styles from index.html */
+/* Custom styles to match the screenshot */
+:root {
+  --tan: #d4d1ce;
+  --dark: #1f3850;
+}
+body {
+  background-color: #1f3850; /* Dark blue background */
+}
+.navbar-brand img {
+  height: 40px; /* Adjust logo size */
+}
+/* Ensure brand and nav items are vertically centered and aligned */
+.navbar {
+  align-items: center; /* vertically center brand and toggler */
+}
+.navbar-brand img {
+  display: block; /* remove inline gap and align baseline */
+}
+.navbar .nav-link {
+  line-height: 1; /* tighten line-height so links vertically center with logo */
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.navbar .nav-item + .nav-item {
+  margin-left: .25rem; /* small gap between nav items */
+}
+.hero-section {
+  background-color: #1f3850;
+  color: white;
+}
+.light-section {
+  background-color: #d4d1ce; /* Tan background */
+}
+.bg-light {
+  background-color: #d4d1ce !important;
+}
+.card {
+  border: none; /* Cards in screenshot have no border */
+}
+
+/* Make cards in the Selected Works area match the tan section */
+#selected-works .card {
+  background-color: var(--tan);
+  color: var(--dark);
+}
+#selected-works .card .card-title,
+#selected-works .card .card-text {
+  color: var(--dark) !important;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #1f3850;
+}
+.navbar-dark.bg-custom-dark {
+  background-color: #1f3850 !important;
+}
+/* Moved inline styles into classes for cleanliness */
+.about-link {
+  padding-left: 2px;
+}
+.intro-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.inno-text {
+  color: #1f3850;
+}
+/* Make .text-secondary darker on the tan background to satisfy contrast requirements */
+.light-section .text-secondary {
+  color: #495057 !important; /* darker gray (approx #495057) */
+}
+.bg-custom-dark {
+  background-color: #1f3850 !important;
+}
+/* Transitions for smooth color/background changes */
+.sticky-top {
+  transition: background-color 150ms ease;
+  z-index: 1020;
+}
+.sticky-top .nav-link {
+  transition: color 150ms ease;
+}
+
+/* Skip link: visually hidden but visible on keyboard focus */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: #ffffffcc;
+  color: #1f3850;
+  padding: 0.5rem 0.75rem;
+  z-index: 1050;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Utility to ensure focused elements are visible for keyboard users */
+.visually-focused:focus {
+  outline: 3px solid #ffd54f;
+  outline-offset: 2px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+}
+
+.inno-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sample-card iframe {
+  pointer-events: none;
+}
+.and-divider {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

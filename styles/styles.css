@@ -1,0 +1,85 @@
+/* Extracted styles from index.html */
+/* Custom styles to match the screenshot */
+body {
+  background-color: #1f3850; /* Dark blue background */
+}
+.navbar-brand img {
+  height: 40px; /* Adjust logo size */
+}
+.hero-section {
+  background-color: #1f3850;
+  color: white;
+}
+.light-section {
+  background-color: #d4d1ce; /* Tan background */
+}
+.bg-light {
+  background-color: #d4d1ce !important;
+}
+.card {
+  border: none; /* Cards in screenshot have no border */
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #1f3850;
+}
+.navbar-dark.bg-custom-dark {
+  background-color: #1f3850 !important;
+}
+/* Moved inline styles into classes for cleanliness */
+.about-link {
+  padding-left: 2px;
+}
+.intro-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.inno-text {
+  color: #1f3850;
+}
+.bg-custom-dark {
+  background-color: #1f3850 !important;
+}
+/* Transitions for smooth color/background changes */
+.sticky-top {
+  transition: background-color 150ms ease;
+}
+.sticky-top .nav-link {
+  transition: color 150ms ease;
+}
+
+/* small helper to style navbar when over the tan section */
+.sticky-top.over-tan {
+  /* ensure Bootstrap dark classes aren't conflicting — we explicitly set background and link colors */
+  background-color: #d4d1ce !important; /* tan */
+}
+.sticky-top.over-tan .nav-link {
+  color: #1f3850 !important; /* dark text on tan */
+}
+
+/* Skip link: visually hidden but visible on keyboard focus */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: #ffffffcc;
+  color: #1f3850;
+  padding: 0.5rem 0.75rem;
+  z-index: 1050;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Utility to ensure focused elements are visible for keyboard users */
+.visually-focused:focus {
+  outline: 3px solid #ffd54f;
+  outline-offset: 2px;
+}
