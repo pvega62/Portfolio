@@ -20,7 +20,7 @@ body { background: var(--dark); font-family: Inter, system-ui, -apple-system, 'S
 .thumb-180 { height: 180px; object-fit: cover; display:block; width:100%; }
 .no-underline { text-decoration: none; color: inherit; }
 /* Ensure rows have spacing and alternating band look */
-.bg-tan .card { background-color: #fff; }
+.bg-tan .card, .light-section .card { background-color: #fff; }
 .card-border { border: none; }
 /* adjust container background bands to be flush edge-to-edge */
 .bg-tan, .bg-custom-dark { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; }
